@@ -48,6 +48,32 @@ Register With Username That Is Already In Use
     Submit Registration
     Register Should Fail With Message  User with username ville already exists
 
+Login After Successful Registration
+    Set Username  kussi
+    Set Password  kussi123
+    Set Password Confirmation  kussi123
+    Submit Registration
+    Registration Should Succeed
+    Click Link  Continue to main page
+    Main Page Should Succeed
+    Logout Main Page
+    Set Username  kussi
+    Set Password  kussi123
+    Submit Credentials
+    Login Should Succeed
+
+Login After Failed Registration
+    Set Username  sari
+    Set Password  123
+    Set Password Confirmation  123
+    Submit Registration
+    Register Should Fail With Message  Password too short
+    Click Link  Login
+    Set Username  sari
+    Set Password  123
+    Submit Credentials
+    Login Should Fail With Message  Invalid username or password
+
 *** Keywords ***
 Reset Application Create User And Go To Register Page
     Reset Application
@@ -69,10 +95,27 @@ Set Password Confirmation
 Submit Registration
     Click Button  Register
 
+Submit Credentials
+    Click Button  Login
+
+Logout Main Page
+    Click Button  Logout
+
 Registration Should Succeed
     Title Should Be  Welcome to Ohtu Application!
+
+Login Should Succeed
+    Main Page Should Be Open
 
 Register Should Fail With Message
     [Arguments]  ${message}
     Register Page Should Be Open
+    Page Should Contain  ${message}
+
+Main Page Should Succeed
+    Title Should Be  Ohtu Application main page
+
+Login Should Fail With Message
+    [Arguments]  ${message}
+    Login Page Should Be Open
     Page Should Contain  ${message}

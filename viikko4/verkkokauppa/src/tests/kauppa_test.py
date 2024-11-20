@@ -6,6 +6,7 @@ from varasto import Varasto
 from tuote import Tuote
 # tägitesti1
 # tägitesti2
+# tägitesti3
 
 class TestKauppa(unittest.TestCase):
     def test_ostoksen_paadytyttya_pankin_metodia_tilisiirto_kutsutaan(self):

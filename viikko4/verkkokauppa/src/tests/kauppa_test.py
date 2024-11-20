@@ -5,6 +5,7 @@ from viitegeneraattori import Viitegeneraattori
 from varasto import Varasto
 from tuote import Tuote
 # tägitesti1
+# tägitesti2
 
 class TestKauppa(unittest.TestCase):
     def test_ostoksen_paadytyttya_pankin_metodia_tilisiirto_kutsutaan(self):

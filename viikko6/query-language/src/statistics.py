@@ -38,5 +38,4 @@ class Statistics:
             lambda player: matcher.test(player),
             self._players
         )
-
         return list(matching_players)
